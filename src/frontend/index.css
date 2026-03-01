@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Fonts ──────────────────────────────────────────────── */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("/assets/fonts/CrimsonPro.woff2") format("woff2");
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design tokens ──────────────────────────────────────── */
+@layer base {
+  :root {
+    --radius: 0.25rem;
+
+    /* Warm cream paper background */
+    --background: 0.975 0.008 75;
+    --foreground: 0.185 0.012 60;
+
+    /* Cards — very slightly warmer than background */
+    --card: 0.965 0.012 72;
+    --card-foreground: 0.185 0.012 60;
+
+    --popover: 0.97 0.010 74;
+    --popover-foreground: 0.185 0.012 60;
+
+    /* Deep espresso primary */
+    --primary: 0.23 0.025 50;
+    --primary-foreground: 0.975 0.008 75;
+
+    /* Soft warm secondary */
+    --secondary: 0.92 0.018 70;
+    --secondary-foreground: 0.25 0.020 55;
+
+    /* Terracotta / rust accent */
+    --accent: 0.92 0.018 70;
+    --accent-foreground: 0.25 0.020 55;
+
+    /* Terracotta highlight */
+    --highlight: 0.58 0.16 40;
+    --highlight-foreground: 0.975 0.008 75;
+
+    --muted: 0.92 0.015 72;
+    --muted-foreground: 0.52 0.018 62;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.87 0.020 68;
+    --input: 0.87 0.020 68;
+    --ring: 0.58 0.16 40;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.965 0.012 72;
+    --sidebar-foreground: 0.185 0.012 60;
+    --sidebar-primary: 0.23 0.025 50;
+    --sidebar-primary-foreground: 0.975 0.008 75;
+    --sidebar-accent: 0.92 0.018 70;
+    --sidebar-accent-foreground: 0.25 0.020 55;
+    --sidebar-border: 0.87 0.020 68;
+    --sidebar-ring: 0.58 0.16 40;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", "Helvetica Neue", sans-serif;
+    font-feature-settings: "liga" 1, "kern" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: oklch(0.58 0.16 40 / 0.18);
+  }
+
+  :focus-visible {
+    outline: 2px solid oklch(0.58 0.16 40);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ─── Typography utilities ───────────────────────────────── */
+@layer utilities {
+  .font-display {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+  }
+
+  .font-serif {
+    font-family: "Crimson Pro", Georgia, serif;
+  }
+
+  .font-sans {
+    font-family: "General Sans", "Helvetica Neue", sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .highlight-accent {
+    color: oklch(0.58 0.16 40);
+  }
+
+  /* Elegant horizontal rule */
+  .rule-ornament::before {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 1.5px;
+    background: oklch(0.58 0.16 40);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Post body typography */
+  .prose-blog {
+    font-family: "Crimson Pro", Georgia, serif;
+    font-size: 1.2rem;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    color: oklch(0.23 0.018 58);
+    max-width: 68ch;
+  }
+}
